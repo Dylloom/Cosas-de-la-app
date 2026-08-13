@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <!-- Icono de candado del sistema para darle identidad a la pantalla -->
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@android:drawable/ic_lock_idle_lock"
+        android:contentDescription="Icono de seguridad"
+        android:layout_marginBottom="16dp"
+        app:tint="#1E88E5" />
+
+    <!-- Título con más estilo -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SISTEMA DE ACCESO"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08" />
+
+    <!-- Subtítulo para rellenar el vacío y guiar al usuario -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aproxime su llave o tarjeta NFC"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:layout_marginBottom="64dp" />
+
+    <!-- EL NUEVO BOTÓN TOTALMENTE REDONDEADO -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAbrirPuerta"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="ABRIR PUERTA"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#1E88E5"
+        app:cornerRadius="30dp"
+        app:elevation="4dp" />
+
+</LinearLayout>
