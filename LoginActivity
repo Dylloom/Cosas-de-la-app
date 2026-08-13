@@ -1,0 +1,37 @@
+package com.ejemplo.nfcapp
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+
+class LoginActivity : Activity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        val etUsuario = findViewById<EditText>(R.id.etUsuario)
+        val etPassword = findViewById<EditText>(R.id.etPassword)
+        val btnIngresar = findViewById<Button>(R.id.btnIngresar)
+
+        btnIngresar.setOnClickListener {
+            val usuario = etUsuario.text.toString()
+            val password = etPassword.text.toString()
+
+            // Validación simple: Si escriben algo en ambos campos, los deja pasar
+            if (usuario.isNotEmpty() && password.isNotEmpty()) {
+                Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
+
+                // Redirige al botón de "Abrir Puerta"
+                val intent = Intent(this, EmisorActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Por favor, completa los campos", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
