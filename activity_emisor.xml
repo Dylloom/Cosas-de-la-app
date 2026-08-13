@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:ignore="HardcodedText,ContentDescription,TextContrastCheck,TouchTargetSizeCheck">
+
+    <!-- 1. VISTA DE LA TARJETA PRINCIPAL (layoutTarjeta) -->
+    <LinearLayout
+        android:id="@+id/layoutTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="visible">
+
+        <!-- Contenedor Azul Estándar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1565C0"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@android:drawable/ic_popup_sync"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cargando estado del NFC..."
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Campo de texto para el mensaje (Corregido con descarte de alertas) -->
+        <EditText
+            android:id="@+id/etMensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="Estamos Probando Cosas Por Aca"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:layout_marginBottom="48dp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+
+        <!-- Botón Estándar de Android -->
+        <Button
+            android:id="@+id/btnSimular"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="ABRIR PUERTA"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1E88E5" />
+    </LinearLayout>
+
+    <!-- 2. PANTALLA DE ÉXITO (layoutExito) -->
+    <LinearLayout
+        android:id="@+id/layoutExito"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#121212"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@android:drawable/checkbox_on_background"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡ACCESO PERMITIDO!"
+            android:textColor="#4CAF50"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 3. PANTALLA DE ERROR (layoutError) -->
+    <LinearLayout
+        android:id="@+id/layoutError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#121212"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@android:drawable/ic_delete"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACCESO DENEGADO"
+            android:textColor="#F44336"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</FrameLayout>
