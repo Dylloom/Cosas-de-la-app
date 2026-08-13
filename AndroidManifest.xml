@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ejemplo.nfcapp">
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <!-- CORREGIDO: Cambiado a required="false" para que no explote en teléfonos sin NFC -->
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Llave NFC"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:icon="@android:drawable/sym_def_app_icon">
+
+        <!-- 1. LA APP ARRANCA EN EL LOGIN -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. PANTALLA DEL BOTÓN "ABRIR PUERTA" -->
+        <activity android:name=".MainActivity" android:exported="true" />
+
+        <!-- 3. PANTALLA DE TRANSMISIÓN DE LA TARJETA -->
+        <activity android:name=".EmisorActivity" android:exported="true" />
+
+        <!-- SERVICIO EN SEGUNDO PLANO PARA EMULAR EL NFC -->
+        <service
+            android:name=".EmisorHceService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/apduservice" />
+        </service>
+
+    </application>
+</manifest>
